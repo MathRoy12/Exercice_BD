@@ -17,9 +17,9 @@
                     @Html.DisplayNameFor(model => model.First().NombreDeChansons)
                 </th>
                 <!-- À partir de la migation 1.5 -->
-                <!--<th>
+                <th>
                     Ajouter aux favoris
-                </th>-->
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -36,12 +36,12 @@
                             @Html.DisplayFor(modelItem => item.NombreDeChansons)
                         </td>
                         <!-- À partir de la migation 1.5 -->
-                        <!--<td>
+                        <td>
                             <form asp-action="AjouterFavori">
-                                <input hidden type="number" name="chanteurId" value="█(item.Chanteur.ChanteurId)">
+                                <input hidden type="number" name="chanteurId" value="@(item.ChanteurId)">
                                 <button type="submit">+⭐</button>
                             </form>
-                        </td>-->
+                        </td>
                     </tr>
         }
         </tbody>

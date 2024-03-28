@@ -20,6 +20,9 @@ namespace S09_Labo.Data
         public virtual DbSet<Changelog> Changelogs { get; set; } = null!;
         public virtual DbSet<Chanson> Chansons { get; set; } = null!;
         public virtual DbSet<Chanteur> Chanteurs { get; set; } = null!;
+        public virtual DbSet<ChanteurFavori> ChanteurFavoris { get; set; } = null!;
+        public virtual DbSet<Couleur> Couleurs { get; set; } = null!;
+        public virtual DbSet<Utilisateur> Utilisateurs { get; set; } = null!;
         public virtual DbSet<VwChanteurNbChanson> VwChanteurNbChansons { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -43,6 +46,19 @@ namespace S09_Labo.Data
                     .WithMany(p => p.Chansons)
                     .HasForeignKey(d => d.ChanteurId)
                     .HasConstraintName("FK_Chanson_ChanteurID");
+            });
+
+            modelBuilder.Entity<ChanteurFavori>(entity =>
+            {
+                entity.HasOne(d => d.Chanteur)
+                    .WithMany(p => p.ChanteurFavoris)
+                    .HasForeignKey(d => d.ChanteurId)
+                    .HasConstraintName("FK_ChanteurFavori_ChanteurID");
+
+                entity.HasOne(d => d.Utilisateur)
+                    .WithMany(p => p.ChanteurFavoris)
+                    .HasForeignKey(d => d.UtilisateurId)
+                    .HasConstraintName("FK_ChanteurFavori_UtilisateurID");
             });
 
             modelBuilder.Entity<VwChanteurNbChanson>(entity =>

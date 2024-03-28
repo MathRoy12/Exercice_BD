@@ -8,8 +8,8 @@
 		CONSTRAINT PK_ChanteurFavori_ChanteurFavoriID PRIMARY KEY (ChanteurFavoriID)
 	);
 	GO
-	
-	-- Contraintes pour les deux FK
+
+    -- Contraintes pour les deux FK
 	
 	ALTER TABLE Musique.ChanteurFavori ADD CONSTRAINT FK_ChanteurFavori_ChanteurID
 	FOREIGN KEY (ChanteurID) REFERENCES Musique.Chanteur(ChanteurID)

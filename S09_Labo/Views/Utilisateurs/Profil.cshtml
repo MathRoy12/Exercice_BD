@@ -1,19 +1,17 @@
 ﻿<!-- Model initial pour la migration 1.4 -->
-<!-- █model Utilisateur -->
+@model UtilisateurEtFavorisViewModel
 
-<!-- Model alternatif après la migration 1.5. -->
-<!-- █model UtilisateurEtFavorisViewModel -->
 <a asp-action="Index" asp-controller="Musique">Retour à l'index</a>
 
-<h2>Profil de █Model.Utilisateur.Pseudo</h2>
+<h2>Profil de @Model.Utilisateur.Pseudo</h2>
 
-<p>Id : █Model.Utilisateur.UtilisateurId</p>
-<p>Nom d'utilisateur : █Model.Utilisateur.Pseudo</p>
+<p>Id : @Model.Utilisateur.UtilisateurId</p>
+<p>Nom d'utilisateur : @Model.Utilisateur.Pseudo</p>
 
 <!-- ARRÊTEZ ICI POUR LA MIGRATION 1.4 -->
 
 <p>Couleur préférée : 
-    <!-- █if (ViewData["couleur"] == null)
+     @if (ViewData["couleur"] == null)
     {
      <span>Confirmez le mot de passe pour afficher</span>
      <form asp-action="Couleur">
@@ -22,14 +20,14 @@
     }
     else
     {
-        █ViewData["couleur"]
-    }-->
+        @ViewData["couleur"]
+    }
 </p>
 
 <!-- CI-DESSOUS, LE TABLEAU POUR LA MIGRATION 1.5 -->
 
-<!--
-█if(Model.ChanteursFavoris.Count > 0)
+
+@if(Model.ChanteursFavoris.Count > 0)
 {
     <h3>Chanteurs préférés</h3>
 
@@ -37,26 +35,25 @@
         <thead>
             <tr>
                 <th>
-                    █Html.DisplayNameFor(model => model.ChanteursFavoris.First().Nom)
+                    @Html.DisplayNameFor(model => model.ChanteursFavoris.First().Nom)
                 </th>
                 <th>
-                    █Html.DisplayNameFor(model => model.ChanteursFavoris.First().DateNaissance)
+                    @Html.DisplayNameFor(model => model.ChanteursFavoris.First().DateNaissance)
                 </th>
             </tr>
         </thead>
         <tbody>
-            █foreach (var item in Model.ChanteursFavoris)
+            @foreach (var item in Model.ChanteursFavoris)
             {
                 <tr>
                     <td>
-                        █Html.DisplayFor(modelItem => item.Nom)
+                        @Html.DisplayFor(modelItem => item.Nom)
                     </td>
                     <td>
-                        █Html.DisplayFor(modelItem => item.DateNaissance)
+                        @Html.DisplayFor(modelItem => item.DateNaissance)
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 }
--->

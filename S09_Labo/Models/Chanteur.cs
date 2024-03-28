@@ -12,6 +12,7 @@ namespace S09_Labo.Models
         public Chanteur()
         {
             Chansons = new HashSet<Chanson>();
+            ChanteurFavoris = new HashSet<ChanteurFavori>();
         }
 
         [StringLength(50)]
@@ -24,5 +25,7 @@ namespace S09_Labo.Models
 
         [InverseProperty("Chanteur")]
         public virtual ICollection<Chanson> Chansons { get; set; }
+        [InverseProperty("Chanteur")]
+        public virtual ICollection<ChanteurFavori> ChanteurFavoris { get; set; }
     }
 }

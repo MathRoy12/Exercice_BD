@@ -5,7 +5,7 @@ SELECT CHT.ChanteurID, CHT.Nom, CHT.DateNaissance, COUNT(CHS.ChanteurID) AS [Nom
 FROM Musique.Chanteur CHT
          INNER JOIN Musique.Chanson CHS ON CHT.ChanteurID = CHS.ChanteurID
 GROUP BY CHT.ChanteurID, CHT.Nom, CHT.DateNaissance
-	
+
 -- ?
 
 GO

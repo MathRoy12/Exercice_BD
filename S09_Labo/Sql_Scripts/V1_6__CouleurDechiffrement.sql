@@ -35,14 +35,16 @@
 		IF HASHBYTES('SHA2_256', CONCAT(@MotDePasse, @Sel)) = @MdpHache
 		BEGIN
 			-- ?
-			
+            OPEN SYMMETRIC KEY MaSuperCle
+                DECRYPTION BY CERTIFICATE MonCertificat;
 			-- Select qui imite la table Utilisateurs.Couleur et déchiffre la couleur préférée
-			SELECT 
+			SELECT CONVERT(nvarchar(50), DECRYPTBYKEY(CouleurPrefere))
 			-- ?
 			AS Couleur
 			FROM Utilisateurs.Utilisateur WHERE Pseudo = @Pseudo;
 			
 			-- ?
+            CLOSE SYMMETRIC KEY MaSuperCle
 		END
 		ELSE
 		BEGIN
