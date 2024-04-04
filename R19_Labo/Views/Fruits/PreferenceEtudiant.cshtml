@@ -1,0 +1,46 @@
+﻿@model R19_Labo.ViewModels.FruitsPreferesVM
+
+<a asp-action="Index">Retour à l'index</a>
+<h2>Afficher les fruits préférés d'un étudiant</h2>
+
+<form asp-action="PreferenceEtudiant" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Prenom" class="control-label"></label>
+        <input asp-for="Prenom" class="form-control" />
+        <span asp-validation-for="Prenom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Nom" class="control-label"></label>
+        <input asp-for="Nom" class="form-control" />
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Chercher" class="btn btn-primary" />
+    </div>
+</form>
+
+<p>Temps de la requête : @ViewData["temps"] millisecondes</p>
+
+@if(Model.NomsFruits != null)
+{
+    <h3>Fruits (en mots)</h3>
+    <ul>
+        @foreach (var item in Model.NomsFruits)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+@if(Model.PhotosFruits != null)
+{
+    <h3>Fruits (en images)</h3>
+    @foreach(var item in Model.PhotosFruits)
+    {
+        <!-- Pour chaque item, afficher l'image. Par contre, si item == NULL, on affiche /images/placeholder.png -->
+        <img src="@item" alt="photo de fruit"/>
+    }
+}
+
+
