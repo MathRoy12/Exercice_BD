@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrapUpBilleterie", "WrapUpBilleterie.csproj", "{277352AE-ECB7-4617-8F4E-96A87559E319}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{277352AE-ECB7-4617-8F4E-96A87559E319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{277352AE-ECB7-4617-8F4E-96A87559E319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{277352AE-ECB7-4617-8F4E-96A87559E319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{277352AE-ECB7-4617-8F4E-96A87559E319}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACC7CFCA-53E6-4CA5-9057-0AC48422D876}
+	EndGlobalSection
+EndGlobal
