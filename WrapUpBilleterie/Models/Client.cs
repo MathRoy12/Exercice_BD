@@ -10,6 +10,11 @@ namespace WrapUpBilleterie.Models
     [Index("Courriel", Name = "UC_Client_Courriel", IsUnique = true)]
     public partial class Client
     {
+        public Client()
+        {
+            Billets = new HashSet<Billet>();
+        }
+
         [Key]
         [Column("ClientID")]
         public int ClientId { get; set; }
@@ -23,5 +28,8 @@ namespace WrapUpBilleterie.Models
         public byte[] MdpSel { get; set; } = null!;
         [MaxLength(32)]
         public byte[] MotDePasseHache { get; set; } = null!;
+
+        [InverseProperty("Client")]
+        public virtual ICollection<Billet> Billets { get; set; }
     }
 }

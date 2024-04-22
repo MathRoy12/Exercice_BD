@@ -57,10 +57,14 @@ ALTER TABLE Spectacles.Representation
     ADD CONSTRAINT DF_Representation_DateHeureRepresentation DEFAULT GETDATE() FOR DateHeureRepresentation
 GO
 --  Un check pour vérifier que le cout des billets est positif ou nul
-
+ALTER TABLE Spectacles.Billet
+    ADD CONSTRAINT CK_Billet_Cout CHECK (CoutBillet > 0 OR CoutBillet IS NULL)
+GO
 
 --  Unicité du nom du spectacles
-
+ALTER TABLE Spectacles.Spectacle
+    ADD CONSTRAINT UQ_Spectacle_Nom UNIQUE (Nom)
+GO
 
 -- LES INSERTIONS
 -- Insertion des données

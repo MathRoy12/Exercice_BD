@@ -11,6 +11,7 @@ DATABASE R22_Billeterie
 END
 CREATE
 DATABASE R22_Billeterie
+GO
 
 USE
 R22_Billeterie

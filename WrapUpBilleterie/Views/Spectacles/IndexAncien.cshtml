@@ -1,0 +1,53 @@
+@model IEnumerable<WrapUpBilleterie.Models.Spectacle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Debut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prix)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Debut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prix)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SpectacleId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SpectacleId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SpectacleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
